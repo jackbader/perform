@@ -24,19 +24,41 @@
         main {
             padding: 2rem;
         }
+
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:focus {
+            outline: 3px solid #4a90e2;
+            outline-offset: 2px;
+        }
     </style>
+    <link rel="preload" href="js/main.min.js" as="script">
 </head>
 
 <body>
     <header>
         <h1>About</h1>
     </header>
+
     <main>
         <h2>About page</h2>
         <p>This is a basic HTML setup for my website. I can add more content here.</p>
-        <button onclick="changeBackgroundColor()">Change Background Color</button>
+        <button id="changeColorBtn" aria-label="Change the background color of the page">Change Background
+            Color</button>
+        <button id="fetchToDos" aria-label="Fetch ToDos">Fetch ToDos</button>
     </main>
-    <script src="js/main.min.js"></script>
+
+    <script src="js/main.min.js" async defer></script>
+    <script>
+        window.addEventListener('load', function () {
+            document.getElementById('changeColorBtn').addEventListener('click', changeBackgroundColor);
+            document.getElementById('fetchToDos').addEventListener('click', fetchToDos);
+        });
+    </script>
 </body>
 
 </html>

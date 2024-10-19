@@ -2,8 +2,8 @@ function changeBackgroundColor() {
     document.body.style.backgroundColor = 'lightblue';
 }
 
-console.log('This is an external script');
-document.addEventListener('DOMContentLoaded', function () {
-    console.log('DOM fully loaded and parsed');
-    // You can add more functionality here
-});
+function fetchToDos() {
+    fetch('https://jsonplaceholder.typicode.com/todos')
+        .then(response => response.json())
+        .then(data => console.log(data));
+}
